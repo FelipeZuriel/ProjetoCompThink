@@ -1,0 +1,189 @@
+console.log("Bem - vindo(a)");
+
+for(p = 0; p < 2; p++){
+  console.log('');
+}
+
+console.log("Nossos Produtos são:");
+
+var prod1 = [1, "Jogo de Panelas Tramontina", 125];
+var prod2 = [2, "Jogo de Facas Churrasqueira", 40];
+var prod3 = [3, "Panela de Pressão", 50];
+var prod4 = [4, "Conjunto de talheres variado", 35];
+
+console.log(prod1[0]+" - "+prod1[1]);
+console.log(prod2[0]+" - "+prod2[1]);
+console.log(prod3[0]+" - "+prod3[1]);
+console.log(prod4[0]+" - "+prod4[1]);
+
+for(p = 0; p < 3; p++){
+  console.log('');
+}
+
+var pedido = [prompt("Digite o número do produto que deseja comprar: ")];
+var quantidade;
+var metodo;
+
+for(p = 0; p < 2; p++){
+  console.log('');
+}
+
+// ______________________________________________________________________
+// ______________________________________________________________________
+// ______________________________________________________________________
+// ______________________________________________________________________
+
+
+if(pedido[0] == 1 || pedido[0] == '1'){
+  console.log("Você escolheu "+prod1[1]);
+  metodo = prompt("Método de pagamento. Debito ou Credito?: ");
+
+  for(p = 0; p < 2; p++){
+  console.log('');
+  }
+
+  switch (metodo) {
+    case 'Debito':
+    case 'debito':
+    pedido.push(prod1[1], prod1[2], metodo);
+    fazerp()
+  break;
+  case 'credito':
+  case 'Credito':
+    quantidade = prompt("Digite a quantidade de parcelas: ");
+    valorparc = prod1[2] / quantidade;
+    pedido.push(prod1[1], valorparc, metodo, quantidade);
+    fazerp()
+  break;
+  default:
+  ('Erro, Favor digitar Credito ou Debito PS:Reinicie o sistema');
+ }
+
+
+}else if(pedido[0] == 2 || pedido[0] == '2'){
+  console.log("Você escolheu "+prod2[1]);
+  metodo = prompt("Método de pagamento. Debito ou Credito?: ");
+
+  for(p = 0; p < 2; p++){
+  console.log('');
+  }
+
+  switch (metodo) {
+    case 'Debito':
+    case 'debito':
+    pedido.push(prod2[1], prod2[2], metodo);
+  break;
+  case 'credito':
+  case 'Credito':
+    quantidade = prompt("Digite a quantidade de parcelas: ");
+    valorparc = prod2[2] / quantidade;
+    pedido.push(prod2[1], valorparc, metodo, quantidade);
+  break;
+  default:
+  ('Erro, Favor digitar Credito ou Debito PS:Reinicie o sistema');
+ }
+
+
+}else if(pedido[0] == 3 || pedido[0] == '3'){
+  console.log("Você escolheu "+prod3[1]);
+  metodo = prompt("Método de pagamento. Debito ou Credito?: ");
+
+  for(p = 0; p < 2; p++){
+  console.log('');
+  }
+  
+  switch (metodo) {
+    case 'Debito':
+    case 'debito':
+    pedido.push(prod3[1], prod3[2], metodo);
+  break;
+  case 'credito':
+  case 'Credito':
+    quantidade = prompt("Digite a quantidade de parcelas: ");
+    valorparc = prod3[2] / quantidade;
+    pedido.push(prod3[1], valorparc, metodo, quantidade);
+  break;
+  default:
+  ('Erro, Favor digitar Credito ou Debito PS:Reinicie o sistema');
+ }
+
+
+}else if(pedido[0] == 4 || pedido[0] == '4'){
+  console.log("Você escolheu "+prod4[1]);
+  metodo = prompt("Método de pagamento. Debito ou Credito?: ");
+
+  for(p = 0; p < 2; p++){
+  console.log('');
+  }
+
+  switch (metodo) {
+    case 'Debito':
+    case 'debito':
+    pedido.push(prod4[1], prod4[2], metodo);
+  break;
+  case 'credito':
+  case 'Credito':
+    quantidade = prompt("Digite a quantidade de parcelas: ");
+    valorparc = prod4[2] / quantidade;
+    pedido.push(prod4[1], valorparc, metodo, quantidade);
+  break;
+  default:
+  ('Erro, Favor digitar Credito ou Debito PS:Reinicie o sistema');
+ }
+
+}else{
+  console.log("ERRO, produto não encontrado. Tente novamente.");
+}
+
+
+
+function fazerp(){
+
+    if (pedido[4] == 'Credito'){
+
+      for(i = pedido[3]; i > 0; i--){
+        console.log(pedido[2]);
+
+      }
+    }else if(pedido[3] == 'Debito'){
+      pedido[2] -= pedido[2] * 0.1;
+      console.log('Parabens!! Voce ganho 10% de desconto');
+      console.log('Valor total da compra agora é: '+pedido[2]);
+    }
+
+    for(p = 0; p < 3; p++){
+      console.log('');
+    }
+
+    console.log("Pedido Realizado com sucesso");
+
+    for(p = 0; p < 3; p++){
+      console.log('');
+    }
+
+    console.log('---------- Dados do pedido ---------------');
+    console.log('');
+
+    var infpedidos = ['Produto', 'Valor', 'Pagamento', 'Parcelas'];
+    var j = 1;
+    var k = 0;
+
+    do{
+      console.log(infpedidos[k]+' : '+pedido[j]);
+      j++;
+      k++;
+    } while(j <= (pedido.length - 1));
+
+    for(p = 0; p < 3; p++){
+      console.log('');
+    }
+
+    var g = 0;
+    var agradecimento = ['Obrigado por comprar conosco', '------ Volte Sempre --------', 'Agradecemos a Preferência', '-------- FelpStore --------'];
+
+    while (g < agradecimento.length){
+      console.log(agradecimento[g]);
+      g++;
+    }
+
+}
